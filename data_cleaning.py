@@ -16,7 +16,7 @@ df_update = df[df.columns.drop(list(df.filter(regex= 'denominator|numerator|CI|B
 total = df_update.isnull().sum().sort_values(ascending=False)
 percent = (df_update.isnull().sum()/df_update.isnull().count()).sort_values(ascending=False)
 missing_data = pd.concat([total, percent], axis=1, keys=['Total', 'Percent'])
-print(missing_data.head(60))
+pandas print(missing_data.head(60))
 
 
 
