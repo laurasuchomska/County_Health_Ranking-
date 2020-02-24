@@ -4,7 +4,6 @@ keywords = ["denominator",
             "Black",
             "White",
             "Hispanic",
-            "FIPS",
             "Alaskan",
             "Indian",
             "Hawaiian"]
