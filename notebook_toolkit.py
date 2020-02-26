@@ -44,13 +44,14 @@ def set_environment():
     
     import pandas as pd
     import warnings
+    
 
     """
     blah blah blah
     """
     
-    return(pd.set_option('display.max_rows', None),
-           pd.set_option('display.max_columns', None),
+    return(pd.set_option('display.max_columns', None),
+           # pd.set_option('display.max_rows', None),
            warnings.filterwarnings('ignore'))
 
 
@@ -72,6 +73,28 @@ def correlation_matrix(df = None):
     heatmap = sns.heatmap(corr, mask=mask, cmap=cmap, vmax=.3, center=0,
               square=True, linewidths=.5, cbar_kws={"shrink": .5})
     return(heatmap)
+
+def multicolinear_drop(df = None):
+    
+    """
+    blah,blah,blah
+    """
+    
+    import numpy as np
+    
+    corr_matrix = df.corr().abs()
+    upper = corr_matrix.where(np.triu(np.ones(corr_matrix.shape), 
+                              k=1).astype(np.bool))
+    to_drop = [column for column in upper.columns if any(upper[column] > 0.75)]
+    return(to_drop)
+
+def norm_feat(series):
+    
+    """
+    blah,blah,blah
+    """
+    
+    return (series - series.mean())/series.std()
     
         
  
